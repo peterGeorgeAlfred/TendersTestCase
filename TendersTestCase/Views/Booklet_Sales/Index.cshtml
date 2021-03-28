@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TendersTestCase.Models.Booklet_Sales>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Booklet Sales</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create",new { }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Booklets.BookletID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Booklets.BookletID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Serial }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.Serial }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.Serial }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
